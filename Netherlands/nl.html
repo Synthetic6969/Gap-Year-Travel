@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+		<title>GOAT Tour | Netherlands</title>
+
+        <script src="https://use.fontawesome.com/releases/v6.2.0/js/all.js"></script>
+		<script defer async type="module">
+			async function initMap() {
+				const { Map } = await google.maps.importLibrary("maps");
+				const { AdvancedMarkerElement } =
+					await google.maps.importLibrary("marker");
+
+				const map = new Map(document.getElementById("map"), {
+					mapId: "99b8730fe823e746",
+					zoom: 13,
+					center: { lat: 52.3730357, lng: 4.8932469 },
+				});
+
+				const places = [
+					{
+						notes: "",
+						title: "Classic Tour",
+						price: 2,
+						type: "tour",
+						open: "10:00-16:00",
+						time: "2",
+						position: { lat: 52.3730357, lng: 4.8932469 },
+						content:
+							'\n    <div class="icon">\n        <i aria-hidden="true" class="fa-solid fa-person-walking"></i>\n        <span class="fa-sr-only">tour</span>\n    </div>\n    <div class="details">\n      <div class="place_name">Classic Tour</div>\n      <div class="notes"></div>\n      <div class="features">\n        \n              <div>\n                <i aria-hidden="true" class="fa-solid fa-euro-sign" style="color: #32b517" title="Price"></i>\n                <span class="fa-sr-only">Price</span>\n                <span>2</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-calendar" title="Open Times"></i>\n                <span class="fa-sr-only">Open Times</span>\n                <span>10:00-16:00</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-clock" title="Estimated Time"></i>\n                <span class="fa-sr-only">Estimated Time</span>\n                <span>2</span>\n              </div>\n            \n      </div>\n    </div>\n  ',
+					},
+					{
+						notes: "",
+						title: "InstAdam Tour",
+						price: 2,
+						type: "tour",
+						open: "Sat 13:30",
+						time: "2",
+						position: { lat: 52.3730357, lng: 4.8932469 },
+						content:
+							'\n    <div class="icon">\n        <i aria-hidden="true" class="fa-solid fa-person-walking"></i>\n        <span class="fa-sr-only">tour</span>\n    </div>\n    <div class="details">\n      <div class="place_name">InstAdam Tour</div>\n      <div class="notes"></div>\n      <div class="features">\n        \n              <div>\n                <i aria-hidden="true" class="fa-solid fa-euro-sign" style="color: #32b517" title="Price"></i>\n                <span class="fa-sr-only">Price</span>\n                <span>2</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-calendar" title="Open Times"></i>\n                <span class="fa-sr-only">Open Times</span>\n                <span>Sat 13:30</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-clock" title="Estimated Time"></i>\n                <span class="fa-sr-only">Estimated Time</span>\n                <span>2</span>\n              </div>\n            \n      </div>\n    </div>\n  ',
+					},
+					{
+						notes: "",
+						title: "Food Tour",
+						price: 2,
+						type: "tour",
+						open: "1899-12-30T10:30:00.000Z",
+						time: "2",
+						position: { lat: 52.3730357, lng: 4.8932469 },
+						content:
+							'\n    <div class="icon">\n        <i aria-hidden="true" class="fa-solid fa-person-walking"></i>\n        <span class="fa-sr-only">tour</span>\n    </div>\n    <div class="details">\n      <div class="place_name">Food Tour</div>\n      <div class="notes"></div>\n      <div class="features">\n        \n              <div>\n                <i aria-hidden="true" class="fa-solid fa-euro-sign" style="color: #32b517" title="Price"></i>\n                <span class="fa-sr-only">Price</span>\n                <span>2</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-calendar" title="Open Times"></i>\n                <span class="fa-sr-only">Open Times</span>\n                <span>Sat Dec 30 1899 10:30:00 GMT+0000 (Greenwich Mean Time)</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-clock" title="Estimated Time"></i>\n                <span class="fa-sr-only">Estimated Time</span>\n                <span>2</span>\n              </div>\n            \n      </div>\n    </div>\n  ',
+					},
+					{
+						notes: "",
+						title: "Dark Side Tour",
+						price: 2,
+						type: "tour",
+						open: "1899-12-30T16:00:00.000Z",
+						time: "2",
+						position: { lat: 52.3730357, lng: 4.8932469 },
+						content:
+							'\n    <div class="icon">\n        <i aria-hidden="true" class="fa-solid fa-person-walking"></i>\n        <span class="fa-sr-only">tour</span>\n    </div>\n    <div class="details">\n      <div class="place_name">Dark Side Tour</div>\n      <div class="notes"></div>\n      <div class="features">\n        \n              <div>\n                <i aria-hidden="true" class="fa-solid fa-euro-sign" style="color: #32b517" title="Price"></i>\n                <span class="fa-sr-only">Price</span>\n                <span>2</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-calendar" title="Open Times"></i>\n                <span class="fa-sr-only">Open Times</span>\n                <span>Sat Dec 30 1899 16:00:00 GMT+0000 (Greenwich Mean Time)</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-clock" title="Estimated Time"></i>\n                <span class="fa-sr-only">Estimated Time</span>\n                <span>2</span>\n              </div>\n            \n      </div>\n    </div>\n  ',
+					},
+					{
+						notes: "Apparently these tickets are quite hard to get - so make sure to pre-book! They are also strict about arriving on time.\n\nRead Anne Frank's diary beforehand for maximum enjoyment ",
+						title: "Anne Frank House",
+						price: 17,
+						type: "museum",
+						open: "09:00-22:00",
+						time: "1-2",
+						position: { lat: 52.3752182, lng: 4.8839765 },
+						content:
+							'\n    <div class="icon">\n        <i aria-hidden="true" class="fa-solid fa-landmark"></i>\n        <span class="fa-sr-only">museum</span>\n    </div>\n    <div class="details">\n      <div class="place_name">Anne Frank House</div>\n      <div class="notes">Apparently these tickets are quite hard to get - so make sure to pre-book! They are also strict about arriving on time.\n\nRead Anne Frank\'s diary beforehand for maximum enjoyment </div>\n      <div class="features">\n        \n              <div>\n                <i aria-hidden="true" class="fa-solid fa-euro-sign" style="color: #32b517" title="Price"></i>\n                <span class="fa-sr-only">Price</span>\n                <span>17</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-calendar" title="Open Times"></i>\n                <span class="fa-sr-only">Open Times</span>\n                <span>09:00-22:00</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-clock" title="Estimated Time"></i>\n                <span class="fa-sr-only">Estimated Time</span>\n                <span>1-2</span>\n              </div>\n            \n      </div>\n    </div>\n  ',
+					},
+					{
+						notes: "Very in demand. Pre-book VERY early.\n\nWatch a documentary on Van Gogh and try to discover more about him.",
+						title: "Van Gogh Museum",
+						price: 22,
+						type: "museum",
+						open: "09:00-18:00",
+						time: "1-2",
+						position: { lat: 52.3580757, lng: 4.8812053 },
+						content:
+							'\n    <div class="icon">\n        <i aria-hidden="true" class="fa-solid fa-landmark"></i>\n        <span class="fa-sr-only">museum</span>\n    </div>\n    <div class="details">\n      <div class="place_name">Van Gogh Museum</div>\n      <div class="notes">Very in demand. Pre-book VERY early.\n\nWatch a documentary on Van Gogh and try to discover more about him.</div>\n      <div class="features">\n        \n              <div>\n                <i aria-hidden="true" class="fa-solid fa-euro-sign" style="color: #32b517" title="Price"></i>\n                <span class="fa-sr-only">Price</span>\n                <span>22</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-calendar" title="Open Times"></i>\n                <span class="fa-sr-only">Open Times</span>\n                <span>09:00-18:00</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-clock" title="Estimated Time"></i>\n                <span class="fa-sr-only">Estimated Time</span>\n                <span>1-2</span>\n              </div>\n            \n      </div>\n    </div>\n  ',
+					},
+					{
+						notes: "May be good for a **short** stop in before or after Anne Frank Museum.\n\nYou can taste test different cheeses from all over the world. It would be polite to buy something afterwards but you don't haaaaave toooooo",
+						title: "Cheese Museum",
+						price: 0,
+						type: "shop",
+						open: "09:00-20:00",
+						time: "0.25",
+						position: { lat: 52.376389, lng: 4.884251 },
+						content:
+							'\n    <div class="icon">\n        <i aria-hidden="true" class="fa-solid fa-shop"></i>\n        <span class="fa-sr-only">shop</span>\n    </div>\n    <div class="details">\n      <div class="place_name">Cheese Museum</div>\n      <div class="notes">May be good for a **short** stop in before or after Anne Frank Museum.\n\nYou can taste test different cheeses from all over the world. It would be polite to buy something afterwards but you don\'t haaaaave toooooo</div>\n      <div class="features">\n        \n              <div>\n                <i aria-hidden="true" class="fa-solid fa-euro-sign" style="color: #32b517" title="Price"></i>\n                <span class="fa-sr-only">Price</span>\n                <span>0</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-calendar" title="Open Times"></i>\n                <span class="fa-sr-only">Open Times</span>\n                <span>09:00-20:00</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-clock" title="Estimated Time"></i>\n                <span class="fa-sr-only">Estimated Time</span>\n                <span>0.25</span>\n              </div>\n            \n      </div>\n    </div>\n  ',
+					},
+					{
+						notes: "To make the most of this, definitely check out this page: https://www.rijksmuseum.nl/en/visit/inside-the-museum\n\nWatch some documentaries on the topics listed on that page, and do some extra research on whatever peaks your interest!",
+						title: "Rijksmuseum",
+						price: 22.5,
+						type: "museum",
+						open: "09:00-17:00",
+						time: "3-5",
+						position: { lat: 52.3599976, lng: 4.8852188 },
+						content:
+							'\n    <div class="icon">\n        <i aria-hidden="true" class="fa-solid fa-landmark"></i>\n        <span class="fa-sr-only">museum</span>\n    </div>\n    <div class="details">\n      <div class="place_name">Rijksmuseum</div>\n      <div class="notes">To make the most of this, definitely check out this page: https://www.rijksmuseum.nl/en/visit/inside-the-museum\n\nWatch some documentaries on the topics listed on that page, and do some extra research on whatever peaks your interest!</div>\n      <div class="features">\n        \n              <div>\n                <i aria-hidden="true" class="fa-solid fa-euro-sign" style="color: #32b517" title="Price"></i>\n                <span class="fa-sr-only">Price</span>\n                <span>22.5</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-calendar" title="Open Times"></i>\n                <span class="fa-sr-only">Open Times</span>\n                <span>09:00-17:00</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-clock" title="Estimated Time"></i>\n                <span class="fa-sr-only">Estimated Time</span>\n                <span>3-5</span>\n              </div>\n            \n      </div>\n    </div>\n  ',
+					},
+					{
+						notes: "",
+						title: "Hash Marijuana & Hemp Museum",
+						price: 11.45,
+						type: "museum",
+						open: "10:00-22:00",
+						time: "1",
+						position: { lat: 52.3717805, lng: 4.8969197 },
+						content:
+							'\n    <div class="icon">\n        <i aria-hidden="true" class="fa-solid fa-landmark"></i>\n        <span class="fa-sr-only">museum</span>\n    </div>\n    <div class="details">\n      <div class="place_name">Hash Marijuana & Hemp Museum</div>\n      <div class="notes"></div>\n      <div class="features">\n        \n              <div>\n                <i aria-hidden="true" class="fa-solid fa-euro-sign" style="color: #32b517" title="Price"></i>\n                <span class="fa-sr-only">Price</span>\n                <span>11.45</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-calendar" title="Open Times"></i>\n                <span class="fa-sr-only">Open Times</span>\n                <span>10:00-22:00</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-clock" title="Estimated Time"></i>\n                <span class="fa-sr-only">Estimated Time</span>\n                <span>1</span>\n              </div>\n            \n      </div>\n    </div>\n  ',
+					},
+					{
+						notes: "",
+						title: "Sex Museum",
+						price: 10,
+						type: "museum",
+						open: "10:00-18:00",
+						time: "0.5",
+						position: { lat: 52.3766117, lng: 4.897228699999999 },
+						content:
+							'\n    <div class="icon">\n        <i aria-hidden="true" class="fa-solid fa-landmark"></i>\n        <span class="fa-sr-only">museum</span>\n    </div>\n    <div class="details">\n      <div class="place_name">Sex Museum</div>\n      <div class="notes"></div>\n      <div class="features">\n        \n              <div>\n                <i aria-hidden="true" class="fa-solid fa-euro-sign" style="color: #32b517" title="Price"></i>\n                <span class="fa-sr-only">Price</span>\n                <span>10</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-calendar" title="Open Times"></i>\n                <span class="fa-sr-only">Open Times</span>\n                <span>10:00-18:00</span>\n              </div>\n            \n        \n              <div>\n                <i aria-hidden="true" class="fa-regular fa-clock" title="Estimated Time"></i>\n                <span class="fa-sr-only">Estimated Time</span>\n                <span>0.5</span>\n              </div>\n            \n      </div>\n    </div>\n  ',
+					},
+				];
+
+				for (const place of places) {
+					const markerContent = document.createElement("div");
+					markerContent.classList.add("place");
+					markerContent.innerHTML = place.content;
+
+					const marker = new AdvancedMarkerElement({
+						map,
+						content: markerContent,
+						position: place.position,
+						title: place.description,
+					});
+
+					marker.addListener("click", () => {
+						if (marker.content.classList.contains("highlight")) {
+							marker.content.classList.remove("highlight");
+							marker.zIndex = null;
+						} else {
+							marker.content.classList.add("highlight");
+							marker.zIndex = 1;
+						}
+					});
+				}
+			}
+
+			initMap();
+		</script>
+		<style>
+			:root {
+				--tour-color: #ff9800;
+				--museum-color: #0288d1;
+				--shop-color: #7b1fa2;
+				--restaurant-color: #558b2f;
+			}
+
+			/*
+   * Optional: Makes the sample page fill the window.
+   */
+
+			html,
+			body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+
+			/*
+   * Always set the map height explicitly to define the size of the div element
+   * that contains the map.
+   */
+
+			#map {
+				height: 100%;
+				width: 100%;
+			}
+
+			/*
+   * place styles in unhighlighted state.
+   */
+
+			.place {
+				align-items: center;
+				background-color: #ffffff;
+				border-radius: 50%;
+				color: #263238;
+				display: flex;
+				font-size: 14px;
+				gap: 15px;
+				height: 30px;
+				justify-content: center;
+				padding: 4px;
+				position: relative;
+				position: relative;
+				transition: all 0.3s ease-out;
+				width: 30px;
+			}
+
+			.place::after {
+				border-left: 9px solid transparent;
+				border-right: 9px solid transparent;
+				border-top: 9px solid #ffffff;
+				content: "";
+				height: 0;
+				left: 50%;
+				position: absolute;
+				top: 95%;
+				transform: translate(-50%, 0);
+				transition: all 0.3s ease-out;
+				width: 0;
+				z-index: 1;
+			}
+
+			.place .icon {
+				align-items: center;
+				display: flex;
+				justify-content: center;
+				color: #ffffff;
+			}
+
+			.place .icon svg {
+				height: 20px;
+				width: auto;
+			}
+
+			.place .details {
+				display: none;
+				flex-direction: column;
+				flex: 1;
+			}
+
+			.place .notes {
+				color: #9e9e9e;
+				font-size: 10px;
+				margin-bottom: 10px;
+				margin-top: 5px;
+				max-width: 200px;
+			}
+
+			.place .features {
+				align-items: flex-end;
+				display: flex;
+				flex-direction: row;
+				gap: 10px;
+			}
+
+			.place .features > div {
+				align-items: center;
+				background: #f5f5f5;
+				border-radius: 5px;
+				border: 1px solid #ccc;
+				display: flex;
+				font-size: 10px;
+				gap: 5px;
+				padding: 5px;
+			}
+
+			/*
+   * place styles in highlighted state.
+   */
+
+			.place.highlight {
+				background-color: #ffffff;
+				border-radius: 8px;
+				box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+				height: auto;
+				padding: 8px 15px;
+				width: auto;
+			}
+
+			.place.highlight::after {
+				border-top: 9px solid #ffffff;
+			}
+
+			.place.highlight .details {
+				display: flex;
+			}
+
+			.place.highlight .icon svg {
+				width: 50px;
+				height: 50px;
+			}
+
+			/*
+   * Tour icon colors.
+*/
+
+			.place.highlight:has(.fa-person-walking) .icon {
+				color: var(--tour-color);
+			}
+
+			.place:not(.highlight):has(.fa-person-walking) {
+				background-color: var(--tour-color);
+			}
+
+			.place:not(.highlight):has(.fa-person-walking)::after {
+				border-top: 9px solid var(--tour-color);
+			}
+
+			/*
+ * Museum icon colors.
+ */
+			.place.highlight:has(.fa-landmark) .icon {
+				color: var(--museum-color);
+			}
+
+			.place:not(.highlight):has(.fa-landmark) {
+				background-color: var(--museum-color);
+			}
+
+			.place:not(.highlight):has(.fa-landmark)::after {
+				border-top: 9px solid var(--museum-color);
+			}
+
+			/*
+ * Shop icon colors.
+ */
+			.place.highlight:has(.fa-shop) .icon {
+				color: var(--shop-color);
+			}
+
+			.place:not(.highlight):has(.fa-shop) {
+				background-color: var(--shop-color);
+			}
+
+			.place:not(.highlight):has(.fa-shop)::after {
+				border-top: 9px solid var(--shop-color);
+			}
+
+			/*
+ * Restaurant icon colors.
+ */
+			.place.highlight:has(.fa-restaurant) .icon {
+				color: var(--restaurant-color);
+			}
+
+			.place:not(.highlight):has(.fa-restaurant) {
+				background-color: var(--restaurant-color);
+			}
+
+			.place:not(.highlight):has(.fa-restaurant)::after {
+				border-top: 9px solid var(--restaurant-color);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="map"></div>
+
+		<!-- prettier-ignore -->
+		<script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+      ({ key: "AIzaSyD14OkHkUzIIWB1It8JgR9ojhBwPMlrFPM", v: "weekly" });
+    </script>
+	</body>
+</html>
